@@ -12,20 +12,32 @@ export class RegisterationComponent implements OnInit {
   registerForm: FormGroup;
   targetIDLength: number = 13;
   targetMobileNumsLength: number = 10;
+  isModalDisplayed: boolean = false;
   constructor(private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
-      idInput: ['', [
-        Validators.minLength(this.targetIDLength),
-        Validators.maxLength(this.targetIDLength),
-        Validators.required]],
+      idInput: [
+        '',
+        [
+          Validators.minLength(this.targetIDLength),
+          Validators.maxLength(this.targetIDLength),
+          Validators.required,
+        ],
+      ],
       callNameID: ['', Validators.required],
       lineID: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       birthDate: ['', Validators.required],
-      emailInput: ['', Validators.required],
+      emailInput: ['', [Validators.email, Validators.required]],
       emergencyContact: ['', Validators.required],
-      emergencyContactMobile: ['', [Validators.minLength(this.targetMobileNumsLength),Validators.maxLength(this.targetMobileNumsLength),Validators.required]],
+      emergencyContactMobile: [
+        '',
+        [
+          Validators.minLength(this.targetMobileNumsLength),
+          Validators.maxLength(this.targetMobileNumsLength),
+          Validators.required,
+        ],
+      ],
       conditionCheckbox: ['', Validators.required],
     });
   }
@@ -61,7 +73,12 @@ export class RegisterationComponent implements OnInit {
   onSubmit(): void {
     console.log('Pressed the button!');
   }
-  testOpen(): void {
-    console.log('Open the modal');
+  openConditionModal(): void {
+    this.isModalDisplayed = true;
+    console.log('this.isModalDisplayed is: ', this.isModalDisplayed);
+  }
+  updateModalStatus($event: boolean) {
+    this.isModalDisplayed = $event;
+    console.log('this.isModalDisplayed is: ', this.isModalDisplayed);
   }
 }

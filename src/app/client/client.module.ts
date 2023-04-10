@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ClientRoutingModule } from './client-routing.module';
 import { RegisterationComponent } from './components/registeration/registeration.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [RegisterationComponent],
@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     ClientRoutingModule,
     ReactiveFormsModule,
-    MatButtonModule,
+    SharedModule,
   ],
 })
 export class ClientModule {}

@@ -11,6 +11,7 @@
           id="idInput"
           class="register-form-input"
           placeholder="กรอกหมายประชาชน 13 หลัก (ไม่มีขีดคั่น)"
+          [maxLength]="targetIDLength"
           formControlName="idInput" />
       </div>
       <div>
@@ -64,7 +65,7 @@
           type="email"
           id="emailInput"
           class="register-form-input"
-          placeholder="john.doe@company.com"
+          placeholder=""
           formControlName="emailInput" />
       </div>
     </div>
@@ -84,11 +85,12 @@
         >โทรศัพท์ที่ติดต่อได้ในกรณีฉุกเฉิน</label
       >
       <input
-        type="tel"
+        type="text"
         id="emergencyContactMobile"
         class="register-form-input"
-        placeholder="กรอกหมายเลขโทรศัพท์ 10 หลัก"
-        formControlName="emergencyContactMobile">
+        placeholder="กรอกหมายเลขโทรศัพท์ 10 หลัก (ไม่มีขีด)"
+        [maxLength]="targetMobileNumsLength"
+        formControlName="emergencyContactMobile" />
     </div>
     <div class="flex items-start mb-6">
       <div class="flex items-center h-5">
@@ -99,9 +101,11 @@
           required
           formControlName="conditionCheckbox" />
       </div>
-      <label for="conditionCheckbox" class="condition-checkbox"
+      <label class="condition-checkbox"
         >สมาชิกรับทราบข้อตกลงสำหรับโปรดิจี้ สปอร์ตคลับ
-        <a class="condition" (click)="testOpen()">สัญญาให้บริการและเงื่อนไข</a></label
+        <a class="condition" (click)="openConditionModal()"
+          >สัญญาให้บริการและเงื่อนไข</a
+        ></label
       >
     </div>
     <button
@@ -111,4 +115,7 @@
       สมัครสมาชิก
     </button>
   </form>
+  <app-scrollable-modal
+    *ngIf="isModalDisplayed"
+    (eventEmitter)="updateModalStatus($event)"></app-scrollable-modal>
 </div>
