@@ -1,106 +1,114 @@
-<div class="flex items-center justify-center bg-gray-900 p-5 w-screen md:h-screen">
-  <form>
-    <div class="grid gap-4 mb-6 md:grid-cols-2">
+<div
+  class="flex items-center justify-center bg-blue-300 p-5 w-screen md:h-screen">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="grid gap-4 mb-6">
       <div>
-        <label for="id-input" class="register-form-label"
+        <label for="idInput" class="register-form-label"
           >เลขประจำตัวประชาชน</label
         >
         <input
           type="text"
-          id="id-input"
+          id="idInput"
           class="register-form-input"
-          placeholder="XXXXXXXXXXXXX (ไม่มีขีดคั่น - )"
-          required />
+          placeholder="กรอกหมายประชาชน 13 หลัก (ไม่มีขีดคั่น)"
+          formControlName="idInput" />
       </div>
       <div>
-        <label for="call-name-id" class="register-form-label">ชื่อเรียก</label>
+        <label for="callNameID" class="register-form-label">ชื่อเรียก</label>
         <input
           type="text"
-          id="call-name-id"
+          id="callNameID"
           class="register-form-input"
           placeholder=""
-          required />
+          formControlName="callNameID" />
       </div>
       <div>
-        <label for="first-name" class="register-form-label">ชื่อ</label>
+        <label for="lineID" class="register-form-label">ไอดีไลน์</label>
         <input
           type="text"
-          id="first-name"
+          id="lineID"
           class="register-form-input"
           placeholder=""
-          required />
+          formControlName="lineID" />
       </div>
       <div>
-        <label for="lastname" class="register-form-label">นามสกุล</label>
+        <label for="firstName" class="register-form-label">ชื่อ</label>
         <input
           type="text"
-          id="lastname"
+          id="firstName"
           class="register-form-input"
-          required />
+          placeholder=""
+          formControlName="firstName" />
       </div>
       <div>
-        <label for="birth-date" class="register-form-label"
+        <label for="lastName" class="register-form-label">นามสกุล</label>
+        <input
+          type="text"
+          id="lastName"
+          class="register-form-input"
+          formControlName="lastName" />
+      </div>
+      <div>
+        <label for="birthDate" class="register-form-label"
           >วัน-เดือน-ปีเกิด</label
         >
         <input
           type="date"
-          id="birth-date"
+          id="birthDate"
           class="register-form-input"
-          required />
+          formControlName="birthDate" />
       </div>
       <div>
-        <label for="email" class="register-form-label"
-          >อีเมล์</label
-        >
+        <label for="emailInput" class="register-form-label">อีเมล์</label>
         <input
           type="email"
-          id="email"
+          id="emailInput"
           class="register-form-input"
           placeholder="john.doe@company.com"
-          required />
+          formControlName="emailInput" />
       </div>
     </div>
     <div class="mb-6">
-      <label for="emergency-contactor" class="register-form-label">บุคคลที่ติดต่อได้ในกรณีฉุกเฉิน</label>
+      <label for="emergencyContact" class="register-form-label"
+        >บุคคลที่ติดต่อได้ในกรณีฉุกเฉิน</label
+      >
       <input
         type="text"
-        id="emergency-contactor"
+        id="emergencyContact"
         class="register-form-input"
         placeholder=""
-        required />
+        formControlName="emergencyContact" />
     </div>
     <div class="mb-6">
-      <label for="emergency-contactor-mobile" class="register-form-label"
+      <label for="emergencyContactMobile" class="register-form-label"
         >โทรศัพท์ที่ติดต่อได้ในกรณีฉุกเฉิน</label
       >
       <input
         type="tel"
-        id="emergency-contactor-mobile"
+        id="emergencyContactMobile"
         class="register-form-input"
-        placeholder="XXX-XXX-XXXX"
-        required />
+        placeholder="กรอกหมายเลขโทรศัพท์ 10 หลัก"
+        formControlName="emergencyContactMobile">
     </div>
     <div class="flex items-start mb-6">
       <div class="flex items-center h-5">
         <input
-          id="remember"
+          id="conditionCheckbox"
           type="checkbox"
-          value=""
           class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-          required />
+          required
+          formControlName="conditionCheckbox" />
       </div>
-      <label
-        for="remember"
-        class="ml-2 text-sm font-medium text-gray-900 dark:text-white"
+      <label for="conditionCheckbox" class="condition-checkbox"
         >สมาชิกรับทราบข้อตกลงสำหรับโปรดิจี้ สปอร์ตคลับ
-        <a href="#" class="text-blue-300 hover:underline dark:text-blue-300"
-          >สัญญาให้บริการและเงื่อนไข</a></label
+        <a class="condition" (click)="testOpen()">สัญญาให้บริการและเงื่อนไข</a></label
       >
     </div>
     <button
       type="submit"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      class="register-btn"
+      [disabled]="registerForm.invalid">
       สมัครสมาชิก
     </button>
   </form>
-  </div>
+</div>
