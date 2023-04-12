@@ -75,10 +75,8 @@ export class RegisterationComponent implements OnInit {
   }
   openConditionModal(): void {
     this.isModalDisplayed = true;
-    console.log('this.isModalDisplayed is: ', this.isModalDisplayed);
   }
   updateModalStatus($event: boolean) {
     this.isModalDisplayed = $event;
-    console.log('this.isModalDisplayed is: ', this.isModalDisplayed);
   }
 }

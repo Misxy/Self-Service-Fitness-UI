@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div
   class="flex items-center justify-center bg-blue-300 p-5 w-screen md:h-screen">
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -10,7 +11,7 @@
           type="text"
           id="idInput"
           class="register-form-input"
-          placeholder="กรอกหมายประชาชน 13 หลัก (ไม่มีขีดคั่น)"
+          placeholder="กรอกหมายประชาชน 13 หลัก (ไม่มีขีด)"
           [maxLength]="targetIDLength"
           formControlName="idInput" />
       </div>
@@ -101,7 +102,7 @@
           required
           formControlName="conditionCheckbox" />
       </div>
-      <label class="condition-checkbox"
+      <label for="conditionCheckbox" class="condition-checkbox"
         >สมาชิกรับทราบข้อตกลงสำหรับโปรดิจี้ สปอร์ตคลับ
         <a class="condition" (click)="openConditionModal()"
           >สัญญาให้บริการและเงื่อนไข</a
