@@ -1,5 +1,5 @@
 .register-form-label {
-  @apply block mb-2 text-lg font-medium text-black;
+  @apply block mb-2 text-base font-medium text-white;
 }
 .register-form-input {
   @apply bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
@@ -11,8 +11,8 @@
   }
 }
 .condition {
-  @apply text-emerald-700 hover:underline;
+  @apply text-blue-200 underline;
 }
 .condition-checkbox {
-  @apply ml-2 text-base font-medium text-gray-900;
+  @apply ml-2 text-base font-medium text-white;
 }

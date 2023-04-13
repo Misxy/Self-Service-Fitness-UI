@@ -10,9 +10,10 @@ import { Validators } from '@angular/forms';
 })
 export class RegisterationComponent implements OnInit {
   registerForm: FormGroup;
-  targetIDLength: number = 13;
-  targetMobileNumsLength: number = 10;
-  isModalDisplayed: boolean = false;
+  targetIDLength = 13;
+  targetMobileNumsLength = 10;
+  isModalDisplayed = false;
+
   constructor(private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
       idInput: [

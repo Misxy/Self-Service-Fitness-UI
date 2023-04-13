@@ -17,7 +17,7 @@
         </h5>
       </div>
       <div class="flex-auto overflow-y-auto relative p-4 bg-blue-200">
-        <div *ngFor="let item of conditions | keyvalue: preserveOriginalOrder">
+        <div *ngFor="let item of conditions | keyvalue : preserveOriginalOrder">
           <p class="head-topic">{{ item.key }}</p>
           <p class="head-topic-desc">{{ item.value }}</p>
         </div>

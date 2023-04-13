@@ -52,7 +52,7 @@ export class ScrollableModalComponent implements OnInit {
       ],
       [
         '11. สัตว์เลี้ยง',
-        'ไม่อนุญาตให้นำสัตว์เลี้ยงทึกชนิดเข้ามาในบริเวณสถานที่ออกกำลังกายโดยเด็ดขาด',
+        'ไม่อนุญาตให้นำสัตว์เลี้ยงทุzกชนิดเข้ามาในบริเวณสถานที่ออกกำลังกายโดยเด็ดขาด',
       ],
       [
         '12. ผู้ฝึกสอนส่วนบุคคล',
@@ -72,7 +72,7 @@ export class ScrollableModalComponent implements OnInit {
       ],
       [
         '16. ผ้าขนหนู',
-        'หากสมาชิกรับบริการผ้าขนหนูจากทางคลับ หลังจากใช้งานเสร็จแล้ว สมาชิกจะต้องนำผ้าขนหนูดังกล่าว มาคืนบริเวณเค้าเตอร์เช็คอืน หากไม่คืนผ้า ทางคลับอาจเรียเก็บค่าใช้จ่ายของผ้าดังกล่าว',
+        'หากสมาชิกรับบริการผ้าขนหนูจากทางคลับ หลังจากใช้งานเสร็จแล้ว สมาชิกจะต้องนำผ้าขนหนูดังกล่าว มาคืนบริเวณเค้าเตอร์เช็คอืน หากไม่คืนผ้า ทางคลับอาจเรียกเก็บค่าใช้จ่ายของผ้าดังกล่าว',
       ],
     ]);
   }
@@ -82,6 +82,10 @@ export class ScrollableModalComponent implements OnInit {
   closeModal(): void {
     this.eventEmitter.emit(false);
   }
-  preserveOriginalOrder = (a: KeyValue<string,string>, b: KeyValue<string,string>): number => {return 0};
-  
+  preserveOriginalOrder = (
+    a: KeyValue<string, string>,
+    b: KeyValue<string, string>
+  ): number => {
+    return 0;
+  };
 }
