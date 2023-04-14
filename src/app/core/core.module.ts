@@ -5,6 +5,7 @@ import { EnsureModuleLoadedOnceGuard } from './guards/ensure-module-loaded-once-
   declarations: [],
   imports: [],
   exports: [],
+  providers: [],
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

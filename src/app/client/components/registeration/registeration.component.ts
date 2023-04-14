@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { DisplayMessage } from 'src/app/shared';
 
 @Component({
   selector: 'app-registeration',
@@ -12,8 +13,10 @@ export class RegisterationComponent implements OnInit {
   registerForm: FormGroup;
   targetIDLength = 13;
   targetMobileNumsLength = 10;
-  isModalDisplayed = false;
-
+  isModalDisplayed: boolean = false;
+  isSuccessfulRegistration: boolean = false;
+  isShowDisplayMessage: boolean = false;
+  displayMessageFromParent: DisplayMessage = {} as DisplayMessage;
   constructor(private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
       idInput: [
@@ -72,7 +75,10 @@ export class RegisterationComponent implements OnInit {
     return this.registerForm.get('conditionCheckbox');
   }
   onSubmit(): void {
-    console.log('Pressed the button!');
+
+    this.isSuccessfulRegistration = false;
+    this.isShowDisplayMessage = true;
+    this.generateDisplayMessage(this.isSuccessfulRegistration);
   }
   openConditionModal(): void {
     this.isModalDisplayed = true;
@@ -80,4 +86,20 @@ export class RegisterationComponent implements OnInit {
   updateModalStatus($event: boolean) {
     this.isModalDisplayed = $event;
   }
+  updateShowDisplayMessageStatus($event: boolean){
+    this.isShowDisplayMessage = $event;
+  }
+  private generateDisplayMessage(isSuccess: boolean): void{
+    this.displayMessageFromParent.isSuccess = isSuccess;
+    this.displayMessageFromParent.firstButtonLabel = 'ปิด';
+    if(isSuccess){
+      this.displayMessageFromParent.headLine = 'ยินดีด้วย! คุณสมัครสมาชิกฟิตเนสสำเร็จ';
+      this.displayMessageFromParent.description = 'แล้วพบกันที่ Prodigy Sport Fitness Club!';
+    }
+    else{
+      this.displayMessageFromParent.headLine = 'เอ๊ะ! ดูเหมือนว่าคุณสมัครสมาชิกฟิตเนสไม่สำเร็จ';
+      this.displayMessageFromParent.description = 'กรุณาสอบถามข้อมูลเพิ่มเติมจากทางฟิตเนส';
+    }
+  }
+
 }

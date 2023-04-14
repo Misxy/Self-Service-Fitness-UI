@@ -118,4 +118,9 @@
   <app-scrollable-modal
     *ngIf="isModalDisplayed"
     (eventEmitter)="updateModalStatus($event)"></app-scrollable-modal>
+  <app-modal
+    *ngIf="isShowDisplayMessage"
+    [displayMessage]="displayMessageFromParent"
+    (eventEmitter)="updateShowDisplayMessageStatus($event)"
+    ></app-modal>
 </div>
