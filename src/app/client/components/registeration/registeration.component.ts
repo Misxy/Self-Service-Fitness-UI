@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { DisplayMessage } from 'src/app/shared';
+import { ClientService } from 'src/app/core';
+import { DisplayMessage, MemberBuilder } from 'src/app/shared';
 
 @Component({
   selector: 'app-registeration',
@@ -17,7 +18,10 @@ export class RegisterationComponent implements OnInit {
   isSuccessfulRegistration: boolean = false;
   isShowDisplayMessage: boolean = false;
   displayMessageFromParent: DisplayMessage = {} as DisplayMessage;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private clientService: ClientService
+  ) {
     const targetIDRegex: string = '^\\d{13}$';
     const targetMobileNoRegex: string = '^\\d{10}$';
     this.registerForm = this.formBuilder.group({
@@ -79,7 +83,9 @@ export class RegisterationComponent implements OnInit {
     return this.registerForm.get('conditionCheckbox');
   }
   onSubmit(): void {
-    this.isSuccessfulRegistration = true;
+    this.isSuccessfulRegistration = this.clientService.addMember(
+      this.createMember()
+    );
     this.isShowDisplayMessage = true;
     this.generateDisplayMessage(this.isSuccessfulRegistration);
   }
@@ -106,5 +112,18 @@ export class RegisterationComponent implements OnInit {
       this.displayMessageFromParent.description =
         'กรุณาสอบถามข้อมูลเพิ่มเติมจากทางฟิตเนส';
     }
+  }
+  private createMember(): MemberBuilder {
+    const newMember: MemberBuilder = new MemberBuilder();
+    newMember.setID(this.IdInput?.value);
+    newMember.setCallName(this.callNameID?.value);
+    newMember.setFirstName(this.firstName?.value);
+    newMember.setLastName(this.lastName?.value);
+    newMember.setBirthDate(this.birthDate?.value);
+    newMember.setEmail(this.emailInput?.value);
+    newMember.setEmergencyContact(this.emergencyContact?.value);
+    newMember.setEmergencyContactMobile(this.emergencyContactMobile?.value);
+    newMember.setIsAcceptTermsAndCondition(true);
+    return newMember;
   }
 }
