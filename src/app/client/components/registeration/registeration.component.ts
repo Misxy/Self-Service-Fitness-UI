@@ -18,12 +18,15 @@ export class RegisterationComponent implements OnInit {
   isShowDisplayMessage: boolean = false;
   displayMessageFromParent: DisplayMessage = {} as DisplayMessage;
   constructor(private formBuilder: FormBuilder) {
+    const targetIDRegex: string = '^\\d{13}$';
+    const targetMobileNoRegex: string = '^\\d{10}$';
     this.registerForm = this.formBuilder.group({
       idInput: [
         '',
         [
           Validators.minLength(this.targetIDLength),
           Validators.maxLength(this.targetIDLength),
+          Validators.pattern(targetIDRegex),
           Validators.required,
         ],
       ],
@@ -39,6 +42,7 @@ export class RegisterationComponent implements OnInit {
         [
           Validators.minLength(this.targetMobileNumsLength),
           Validators.maxLength(this.targetMobileNumsLength),
+          Validators.pattern(targetMobileNoRegex),
           Validators.required,
         ],
       ],
@@ -75,7 +79,6 @@ export class RegisterationComponent implements OnInit {
     return this.registerForm.get('conditionCheckbox');
   }
   onSubmit(): void {
-
     this.isSuccessfulRegistration = false;
     this.isShowDisplayMessage = true;
     this.generateDisplayMessage(this.isSuccessfulRegistration);
@@ -86,20 +89,22 @@ export class RegisterationComponent implements OnInit {
   updateModalStatus($event: boolean) {
     this.isModalDisplayed = $event;
   }
-  updateShowDisplayMessageStatus($event: boolean){
+  updateShowDisplayMessageStatus($event: boolean) {
     this.isShowDisplayMessage = $event;
   }
-  private generateDisplayMessage(isSuccess: boolean): void{
+  private generateDisplayMessage(isSuccess: boolean): void {
     this.displayMessageFromParent.isSuccess = isSuccess;
     this.displayMessageFromParent.firstButtonLabel = 'ปิด';
-    if(isSuccess){
-      this.displayMessageFromParent.headLine = 'ยินดีด้วย! คุณสมัครสมาชิกฟิตเนสสำเร็จ';
-      this.displayMessageFromParent.description = 'แล้วพบกันที่ Prodigy Sport Fitness Club!';
-    }
-    else{
-      this.displayMessageFromParent.headLine = 'เอ๊ะ! ดูเหมือนว่าคุณสมัครสมาชิกฟิตเนสไม่สำเร็จ';
-      this.displayMessageFromParent.description = 'กรุณาสอบถามข้อมูลเพิ่มเติมจากทางฟิตเนส';
+    if (isSuccess) {
+      this.displayMessageFromParent.headLine =
+        'ยินดีด้วย! คุณสมัครสมาชิกฟิตเนสสำเร็จ';
+      this.displayMessageFromParent.description =
+        'แล้วพบกันที่ Prodigy Sport Fitness Club!';
+    } else {
+      this.displayMessageFromParent.headLine =
+        'เอ๊ะ! ดูเหมือนว่าคุณสมัครสมาชิกฟิตเนสไม่สำเร็จ';
+      this.displayMessageFromParent.description =
+        'กรุณาสอบถามข้อมูลเพิ่มเติมจากทางฟิตเนส';
     }
   }
-
 }

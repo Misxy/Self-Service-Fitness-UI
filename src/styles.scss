@@ -11,6 +11,6 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
-.back-drop-class{
+.back-drop-class {
   @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity;
 }

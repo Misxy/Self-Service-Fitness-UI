@@ -10,7 +10,7 @@ export class ModalComponent {
   @Input() displayMessage: DisplayMessage = {} as DisplayMessage;
   @Output()
   eventEmitter: EventEmitter<boolean> = new EventEmitter();
-  onCloseModal(): void{
+  onCloseModal(): void {
     this.eventEmitter.emit(false);
   }
 }
