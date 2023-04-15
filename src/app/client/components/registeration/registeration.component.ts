@@ -79,7 +79,7 @@ export class RegisterationComponent implements OnInit {
     return this.registerForm.get('conditionCheckbox');
   }
   onSubmit(): void {
-    this.isSuccessfulRegistration = false;
+    this.isSuccessfulRegistration = true;
     this.isShowDisplayMessage = true;
     this.generateDisplayMessage(this.isSuccessfulRegistration);
   }
