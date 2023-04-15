@@ -1,1 +1,125 @@
-<p>registeration works!</p>
+<div
+  class="flex items-center justify-center bg-gray-900 p-5 w-screen md:h-screen">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="grid gap-4 mb-6">
+      <div>
+        <label for="idInput" class="register-form-label"
+          >เลขประจำตัวประชาชน</label
+        >
+        <input
+          type="text"
+          id="idInput"
+          class="register-form-input"
+          placeholder="กรอกหมายประชาชน 13 หลัก (ไม่มีขีด)"
+          [maxLength]="targetIDLength"
+          formControlName="idInput" />
+      </div>
+      <div>
+        <label for="callNameID" class="register-form-label">ชื่อเรียก</label>
+        <input
+          type="text"
+          id="callNameID"
+          class="register-form-input"
+          placeholder=""
+          formControlName="callNameID" />
+      </div>
+      <div>
+        <label for="lineID" class="register-form-label">ไอดีไลน์</label>
+        <input
+          type="text"
+          id="lineID"
+          class="register-form-input"
+          placeholder=""
+          formControlName="lineID" />
+      </div>
+      <div>
+        <label for="firstName" class="register-form-label">ชื่อ</label>
+        <input
+          type="text"
+          id="firstName"
+          class="register-form-input"
+          placeholder=""
+          formControlName="firstName" />
+      </div>
+      <div>
+        <label for="lastName" class="register-form-label">นามสกุล</label>
+        <input
+          type="text"
+          id="lastName"
+          class="register-form-input"
+          formControlName="lastName" />
+      </div>
+      <div>
+        <label for="birthDate" class="register-form-label"
+          >วัน-เดือน-ปีเกิด</label
+        >
+        <input
+          type="date"
+          id="birthDate"
+          class="register-form-input"
+          formControlName="birthDate" />
+      </div>
+      <div>
+        <label for="emailInput" class="register-form-label">อีเมล์</label>
+        <input
+          type="email"
+          id="emailInput"
+          class="register-form-input"
+          placeholder=""
+          formControlName="emailInput" />
+      </div>
+    </div>
+    <div class="mb-6">
+      <label for="emergencyContact" class="register-form-label"
+        >บุคคลที่ติดต่อได้ในกรณีฉุกเฉิน</label
+      >
+      <input
+        type="text"
+        id="emergencyContact"
+        class="register-form-input"
+        placeholder=""
+        formControlName="emergencyContact" />
+    </div>
+    <div class="mb-6">
+      <label for="emergencyContactMobile" class="register-form-label"
+        >โทรศัพท์ที่ติดต่อได้ในกรณีฉุกเฉิน</label
+      >
+      <input
+        type="text"
+        id="emergencyContactMobile"
+        class="register-form-input"
+        placeholder="กรอกหมายเลขโทรศัพท์ 10 หลัก (ไม่มีขีด)"
+        [maxLength]="targetMobileNumsLength"
+        formControlName="emergencyContactMobile" />
+    </div>
+    <div class="flex items-start mb-6">
+      <div class="flex items-center h-5">
+        <input
+          id="conditionCheckbox"
+          type="checkbox"
+          class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+          required
+          formControlName="conditionCheckbox" />
+      </div>
+      <label for="conditionCheckbox" class="condition-checkbox"
+        >สมาชิกรับทราบข้อตกลงสำหรับโปรดิจี้ สปอร์ตคลับ
+        <a class="condition" (click)="openConditionModal()"
+          >สัญญาให้บริการและเงื่อนไข</a
+        ></label
+      >
+    </div>
+    <button
+      type="submit"
+      class="register-btn"
+      [disabled]="registerForm.invalid">
+      สมัครสมาชิก
+    </button>
+  </form>
+  <app-scrollable-modal
+    *ngIf="isModalDisplayed"
+    (eventEmitter)="updateModalStatus($event)"></app-scrollable-modal>
+  <app-modal
+    *ngIf="isShowDisplayMessage"
+    [displayMessage]="displayMessageFromParent"
+    (eventEmitter)="updateShowDisplayMessageStatus($event)"></app-modal>
+</div>
