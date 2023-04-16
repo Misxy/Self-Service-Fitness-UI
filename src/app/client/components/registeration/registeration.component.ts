@@ -50,7 +50,7 @@ export class RegisterationComponent implements OnInit {
           Validators.required,
         ],
       ],
-      conditionCheckbox: ['', Validators.required],
+      conditionCheckbox: ['', Validators.requiredTrue],
     });
   }
   ngOnInit() {}
