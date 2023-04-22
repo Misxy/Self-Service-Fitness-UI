@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ClientModule } from 'src/app/client/client.module';
 import { MemberBuilder } from 'src/app/shared';
 
 @Injectable({
-  providedIn: ClientModule,
+  providedIn: 'root',
 })
 export class ClientService {
   private _members: Array<MemberBuilder> = [];

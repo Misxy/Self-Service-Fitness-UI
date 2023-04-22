@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrollableModalComponent } from './scrollable-modal.component';
+import { ScrollableModalComponent } from './agreements-policies.component';
 
 describe('ScrollableModalComponent', () => {
   let component: ScrollableModalComponent;

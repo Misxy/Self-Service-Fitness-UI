@@ -123,9 +123,9 @@
       สมัครสมาชิก
     </button>
   </form>
-  <app-scrollable-modal
+  <app-agreements-policies
     *ngIf="isModalDisplayed"
-    (eventEmitter)="updateModalStatus($event)"></app-scrollable-modal>
+    (eventEmitter)="updateModalStatus($event)"></app-agreements-policies>
   <app-modal
     *ngIf="isShowDisplayMessage"
     [displayMessage]="displayMessageFromParent"

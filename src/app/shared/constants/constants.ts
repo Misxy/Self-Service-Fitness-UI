@@ -9,3 +9,5 @@ export const email: string = 'อีเมล์';
 export const emergencyContact: string = 'บุคลลที่ติดต่อได้ในกรณีฉุกเฉิน';
 export const emergencyContactMobile: string =
   'โทรศัพท์ที่ติดต่อได้ในกรณีฉุกเฉิน';
+export const username: string = 'ชื่อผู้ใช้งาน';
+export const password: string = 'รหัสผ่าน';
