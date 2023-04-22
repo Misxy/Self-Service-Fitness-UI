@@ -2,9 +2,9 @@
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="grid gap-4 mb-6">
       <div>
-        <label for="idInput" class="register-form-label"
-          >เลขประจำตัวประชาชน</label
-        >
+        <label for="idInput" class="register-form-label">{{
+          this.labelsList[0]
+        }}</label>
         <input
           type="text"
           id="idInput"
@@ -14,7 +14,9 @@
           formControlName="idInput" />
       </div>
       <div>
-        <label for="callNameID" class="register-form-label">ชื่อเรียก</label>
+        <label for="callNameID" class="register-form-label">{{
+          this.labelsList[1]
+        }}</label>
         <input
           type="text"
           id="callNameID"
@@ -23,7 +25,9 @@
           formControlName="callNameID" />
       </div>
       <div>
-        <label for="lineID" class="register-form-label">ไอดีไลน์</label>
+        <label for="lineID" class="register-form-label">{{
+          this.labelsList[2]
+        }}</label>
         <input
           type="text"
           id="lineID"
@@ -32,7 +36,9 @@
           formControlName="lineID" />
       </div>
       <div>
-        <label for="firstName" class="register-form-label">ชื่อ</label>
+        <label for="firstName" class="register-form-label">{{
+          this.labelsList[3]
+        }}</label>
         <input
           type="text"
           id="firstName"
@@ -41,7 +47,9 @@
           formControlName="firstName" />
       </div>
       <div>
-        <label for="lastName" class="register-form-label">นามสกุล</label>
+        <label for="lastName" class="register-form-label">{{
+          this.labelsList[4]
+        }}</label>
         <input
           type="text"
           id="lastName"
@@ -49,9 +57,9 @@
           formControlName="lastName" />
       </div>
       <div>
-        <label for="birthDate" class="register-form-label"
-          >วัน-เดือน-ปีเกิด</label
-        >
+        <label for="birthDate" class="register-form-label">{{
+          this.labelsList[5]
+        }}</label>
         <input
           type="date"
           id="birthDate"
@@ -59,7 +67,9 @@
           formControlName="birthDate" />
       </div>
       <div>
-        <label for="emailInput" class="register-form-label">อีเมล์</label>
+        <label for="emailInput" class="register-form-label">{{
+          this.labelsList[6]
+        }}</label>
         <input
           type="email"
           id="emailInput"
@@ -69,9 +79,9 @@
       </div>
     </div>
     <div class="mb-6">
-      <label for="emergencyContact" class="register-form-label"
-        >บุคคลที่ติดต่อได้ในกรณีฉุกเฉิน</label
-      >
+      <label for="emergencyContact" class="register-form-label">{{
+        this.labelsList[7]
+      }}</label>
       <input
         type="text"
         id="emergencyContact"
@@ -80,9 +90,9 @@
         formControlName="emergencyContact" />
     </div>
     <div class="mb-6">
-      <label for="emergencyContactMobile" class="register-form-label"
-        >โทรศัพท์ที่ติดต่อได้ในกรณีฉุกเฉิน</label
-      >
+      <label for="emergencyContactMobile" class="register-form-label">{{
+        this.labelsList[8]
+      }}</label>
       <input
         type="text"
         id="emergencyContactMobile"

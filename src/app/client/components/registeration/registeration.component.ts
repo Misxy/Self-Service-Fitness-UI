@@ -3,7 +3,19 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ClientService } from 'src/app/core';
-import { DisplayMessage, MemberBuilder } from 'src/app/shared';
+import {
+  DisplayMessage,
+  MemberBuilder,
+  birthDate,
+  callerName,
+  email,
+  emergencyContact,
+  emergencyContactMobile,
+  firstName,
+  idInput,
+  lastName,
+  lineID,
+} from 'src/app/shared';
 
 @Component({
   selector: 'app-registeration',
@@ -18,6 +30,17 @@ export class RegisterationComponent implements OnInit {
   isSuccessfulRegistration: boolean = false;
   isShowDisplayMessage: boolean = false;
   displayMessageFromParent: DisplayMessage = {} as DisplayMessage;
+  labelsList: Array<string> = [
+    idInput,
+    callerName,
+    lineID,
+    firstName,
+    lastName,
+    birthDate,
+    email,
+    emergencyContact,
+    emergencyContactMobile,
+  ];
   constructor(
     private formBuilder: FormBuilder,
     private clientService: ClientService

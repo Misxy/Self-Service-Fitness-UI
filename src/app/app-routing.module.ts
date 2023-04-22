@@ -9,6 +9,10 @@ const routes: Routes = [
       import('./client/client.module').then(m => m.ClientModule),
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },

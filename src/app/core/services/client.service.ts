@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { ClientModule } from 'src/app/client/client.module';
 import { MemberBuilder } from 'src/app/shared';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: ClientModule,
 })
 export class ClientService {
   private _members: Array<MemberBuilder> = [];
@@ -15,12 +16,6 @@ export class ClientService {
     return true;
   }
   private isDuplicateMember(member: MemberBuilder) {
-    // for (const eachMember of this._members){
-    //   if(eachMember.getMember().id === member.getMember().id){
-    //     return true;
-    //   }
-    // }
-    // return false;
     return this._members.some(
       eachMember => eachMember.getMember().id === member.getMember().id
     );

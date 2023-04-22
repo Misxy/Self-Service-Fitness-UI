@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ClientModule } from './client/client.module';
+import { AdminModule } from './admin/admin.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,6 +17,7 @@ import { ClientModule } from './client/client.module';
     CoreModule,
     SharedModule,
     ClientModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
